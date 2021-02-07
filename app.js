@@ -1,4 +1,3 @@
-'use strict';
 const searchButton = document.getElementById('search-button');
 const foodContainer = document.getElementById('foods');
 const warningMessage = document.getElementById('warning-message');
