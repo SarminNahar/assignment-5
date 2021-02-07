@@ -1,5 +1,9 @@
-#mealItems{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#warning-message{
+    display: none;
 }

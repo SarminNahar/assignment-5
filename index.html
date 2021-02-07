@@ -15,7 +15,8 @@
 
 <body>
     <header class="container bg-color">
-        <nav class="navbar navbar-expand-lg navbar-light d-flex nav-bg container fixed-top">
+        <!-- start navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light d-flex nav-bg container ">
             <div class="container-fluid">
                 <a class="nav-link text-dark fw-bold" aria-current="page" href="">Hungry Monster</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -35,9 +36,10 @@
 
             </div>
         </nav>
+        <!-- end navbar -->
     </header>
     <!-- search for meal button -->
-    <div class="mt-5 container" >
+    <div class="mt-5 container">
         <form class="col-md-6 m-auto py-5">
             <div class="input-group mb-3">
                 <input id="input-value" type="text" class="form-control" placeholder="Search for meal">
@@ -46,16 +48,15 @@
                 </div>
             </div>
         </form>
-
-        <img id="foodImage" src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview">
-
-        <div id="mealDetail">
-
-        </div>
-        <div id="mealItems">
-
-        </div>
+        <!-- end search part -->
     </div>
+
+    <!-- Start foods Area  -->
+    <section class="container py-5">
+        <div id="foods" class="row g-3"></div>
+        <p id="warning-message" class="lead text-danger text-center">Please try again</p>
+    </section>
+    <!-- End foods Area -->
 
     <script src="app.js"></script>
 </body>
