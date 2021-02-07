@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry Monster</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container bg-color">
+        <nav class="navbar navbar-expand-lg navbar-light d-flex nav-bg container fixed-top">
+            <div class="container-fluid">
+                <a class="nav-link text-dark fw-bold" aria-current="page" href="">Hungry Monster</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex justify-content-end d-none d-lg-block"
+                    id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link text-dark fw-bold" aria-current="page" href="">Home</a>
+                        <a class="nav-link text-dark fw-bold" href="">Product</a>
+                        <a class="nav-link text-dark fw-bold" href="">About Us</a>
+                        <a class="nav-link text-dark fw-bold" href="">Contact Us</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!-- search for meal button -->
+    <div class="mt-5 container" >
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input id="input-value" type="text" class="form-control" placeholder="Search for meal">
+                <div class="input-group-append">
+                    <button id="search-button" type="button" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <img id="foodImage" src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview">
+
+        <div id="mealDetail">
+
+        </div>
+        <div id="mealItems">
+
+        </div>
+       
+
+    </div>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
