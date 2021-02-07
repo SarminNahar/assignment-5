@@ -1,72 +1,68 @@
-const searchButton = document.getElementById('search-button');
-const foodContainer = document.getElementById('foods');
-const warningMessage = document.getElementById('warning-message');
-// add even handler
-searchButton.addEventListener('click', function () {
-    const inputValue = document.getElementById('input-value').value;
-    foodContainer.innerHTML = '';
-    if (inputValue === '') {
-        warningMessage.style.display = 'block';
-    } else {
-        getFoodItem(inputValue);
-        warningMessage.style.display = 'none';
-    }
-});
+const getInputValue = () => {
+    const inputValue = document.getElementById("input-value").value;
+    const foodDetails = document.getElementById("food-Details");
+    foodDetails.style.display = "none";
 
-const displayMealDetails = name => {
-    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${name}`;
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
+
     fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            renderMealInfo(data.meals[0]);
-            console.log(data.meals[0]);
-        });
-};
+    .then((res) => res.json())
+    .then((data) => {
+      const foodsDiv = document.getElementById("food-list");
+      let foodInputValue = data.meals;
+      let foodList = "";
+      foodInputValue.forEach((element) => {
+        foodList += ` 
+          <div onClick="getDetails('${element.strMeal}')" class="meal-card">
+            <img class="card-img-top" src="${element.strMealThumb}" />
+            <div class="card-body">
+              <h5 class="card-title text-center">${element.strMeal}</h5>
+            </div>
+          </div>
+          `;
+      });
+      foodsDiv.innerHTML = foodList;
+    });
 
-const renderMealInfo = food => {
-    const foodItemDetailsDiv = document.getElementById('foodsDetails');
-
-    foodItemDetailsDiv.innerHTML = `
-    <img class="img-fluid rounded mb-4" src="${food.strMealThumb}" alt="">
-    <h4>${food.strMeal}</h4>
-    
-    <h5 class="pt-3 pb-2"><i class="icon-fire icons"></i> Ingredients</h5>
-    <ul class="list-check mb-0">
-        <li><i class="icon-check icons"></i>${food.strMeasure1}, ${food.strIngredient1}</li>
-        <li><i class="icon-check icons"></i>${food.strMeasure2}, ${food.strIngredient2}</li>
-        <li><i class="icon-check icons"></i>${food.strMeasure3}, ${food.strIngredient3}</li>
-        <li><i class="icon-check icons"></i>${food.strMeasure4}, ${food.strIngredient4}</li>
-    </ul>
-`;
-};
-
-function getFoodItem(mealId) {
-    const mainUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealId}`;
-
-    fetch(mainUrl)
-        .then(res => res.json())
-        .then(data => {
-            displayFoodsItem(data.meals);
-        });
-
-    const displayFoodsItem = foods => {
-        const foodsDiv = document.getElementById('foods');
-        if (foods != null) {
-            foods.map(food => {
-                const foodDiv = document.createElement('div');
-                foodDiv.className = 'col-md-3';
-                const mealInfo = `
-                        <div onclick="displayMealDetails('${food.idMeal}')" class="border rounded text-center h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img class="img-fluid rounded-top" src="${food.strMealThumb}" alt="">
-                        <h4 class="h5 py-4 px-2 mb-0">${food.strMeal}</h4>
-                        </div>
-                    `;
-                foodDiv.innerHTML = mealInfo;
-                foodsDiv.appendChild(foodDiv);
-            });
-        } else {
-            warningMessage.style.display = 'block';
-        }
-    };
+    // Get meal details
 }
+const getDetails = (mealsDetails) => {
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealsDetails}`;
+  
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        const meal = data.meals;
+        mealDetails(meal[0]);
+      });
+  };
 
+  // input  meal item
+
+const mealDetails = (mealsDetails) => {
+    const ingredientsDiv = document.getElementById("food-Details");
+    ingredientsDiv.style.display = "block";
+    ingredientsDiv.innerHTML = `
+    <div class="meal-details">
+       <img src="${mealsDetails.strMealThumb}" alt="" />
+          <h2>${mealsDetails.strMeal}</h2>
+           <h3>Details</h3>
+          <ul >
+            <li>${mealsDetails.strIngredient1}</li>
+            <li>${mealsDetails.strIngredient2}</li>
+            <li>${mealsDetails.strIngredient3}</li>
+            <li>${mealsDetails.strIngredient4}</li>
+            <li>${mealsDetails.strIngredient5}</li>
+            <li>${mealsDetails.strIngredient6}</li>
+            <li>${mealsDetails.strIngredient7}</li>
+            <li>${mealsDetails.strIngredient8}</li>
+            <li>${mealsDetails.strIngredient9}</li>
+            <li>${mealsDetails.strIngredient10}</li>
+          </ul>
+         
+          <h3>Instructions</h3>
+          <p>${mealsDetails.strInstructions}</p>
+    </div>
+    
+    `;
+};

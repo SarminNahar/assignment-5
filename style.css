@@ -3,7 +3,41 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-#warning-message{
-    display: none;
+#food-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
+.food-card{
+    margin-left: 15px;
+    border-radius: 10px;
+    background-color: #e04700;
+    width: 90%;
+    color: white;
+    cursor: pointer;
+}
+.food-card img {
+    border-radius: 10px;
+    width: 100%;
+  }
+  .meal-details{
+    margin-bottom: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #e0a80077;
+    padding: 30px;
+  }
+  .meal-details h2 {
+    margin-top: 15px;
+    font-size: 35px;
+    font-weight: 900;
+  }
+  .meal-details ul {
+    list-style-type: none;
+    font-size: 15px;
+  }
+  .meal-details img {
+    border-radius: 10px;
+    width: 20%;
+  }

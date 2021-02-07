@@ -44,19 +44,18 @@
             <div class="input-group mb-3">
                 <input id="input-value" type="text" class="form-control" placeholder="Search for meal">
                 <div class="input-group-append">
-                    <button id="search-button" type="button" class="btn btn-danger">Search</button>
+                    <button onclick="getInputValue()" id="search-button" type="button"
+                        class="btn btn-danger">Search</button>
                 </div>
             </div>
         </form>
         <!-- end search part -->
-    </div>
 
-    <!-- Start foods Area  -->
-    <section class="container py-5">
-        <div id="foods" class="row g-3"></div>
-        <p id="warning-message" class="lead text-danger text-center">Please try again</p>
-    </section>
-    <!-- End foods Area -->
+        <!-- Start foods Area  -->
+        <div class="text-center" id="food-Details"></div>
+        <div id="food-list"></div>
+        <!--End foods Area -->
+    </div>
 
     <script src="app.js"></script>
 </body>
