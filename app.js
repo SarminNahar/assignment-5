@@ -3,11 +3,19 @@ const searchMeals = () => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMealItem}`;
   fetch(url)
     .then(res => res.json())
-    .then(data => displayMeals(data.meals));
+    .then(data => displayMeals(data.meals))
+    .catch(error => displayMealError('Your search meal is unavailable. Please try another item.'))
+}
+// error message
+const displayMealError = error => {
+  const errorMessage = document.getElementById('invalid-search-message');
+  errorMessage.innerText = error;
 }
 
+//display meals
 const displayMeals = meals => {
   const mealContainer = document.getElementById('meal-container');
+  mealContainer.innerHTML = '';
   meals.forEach(meal => {
     const mealDiv = document.createElement('div');
     mealDiv.className = 'meal-card';
@@ -21,6 +29,7 @@ const displayMeals = meals => {
   });
 
 }
+// get meal details
 const getMealInfo = mealId => {
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
   fetch(url)
@@ -30,6 +39,7 @@ const getMealInfo = mealId => {
 
 function details(data) {
   const detailsDiv = document.getElementById('meal-Details');
+  detailsDiv.innerHTML = '';
   for (let i = 0; i < data.length; i++) {
     const element = data[i];
     detailsDiv.innerHTML = `
@@ -45,16 +55,7 @@ function details(data) {
         <p>${element.strIngredient9}</p>
         <p>${element.strInstructions}</p>
 
-    `
-    console.log(element.strIngredient1);
-    console.log(element.strIngredient2);
-    console.log(element.strIngredient3);
-    console.log(element.strIngredient4);
-    console.log(element.strIngredient5);
-    console.log(element.strIngredient6);
-    console.log(element.strIngredient7);
-    console.log(element.strIngredient8);
-    console.log(element.strIngredient9);
-    console.log(element.strInstructions);
+    `;
   }
 }
+
