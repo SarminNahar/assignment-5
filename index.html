@@ -40,20 +40,29 @@
     </header>
     <!-- search for meal button -->
     <div class="mt-5 container">
-        <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input id="input-value" type="text" class="form-control" placeholder="Search for meal">
-                <div class="input-group-append">
-                    <button onclick="getInputValue()" id="search-button" type="button"
-                        class="btn btn-danger">Search</button>
-                </div>
+        <div class="input-group mb-3">
+            <input id="search-meal" type="text" class="form-control" placeholder="Search for meal">
+            <div class="input-group-append">
+                <button onclick="searchMeals()" type="button" class="btn btn-danger">Search</button>
             </div>
-        </form>
+        </div>
         <!-- end search part -->
 
         <!-- Start foods Area  -->
-        <div class="text-center" id="food-Details"></div>
-        <div id="food-list"></div>
+        <h3 id="error-message" class="text-danger"></h3>
+        
+        <div id="meal-Details" class="text-center">
+
+        </div>
+
+        <div id="meal-container">
+            
+        </div>
+
+        
+        <div id="meal-list">
+
+        </div>
         <!--End foods Area -->
     </div>
 
