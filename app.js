@@ -17,19 +17,19 @@ const displayMeals = meals => {
       <h5 class="card-title text-center">${meal.strMeal}</h5>
   </div>
   `;
-  mealContainer.appendChild(mealDiv);
+    mealContainer.appendChild(mealDiv);
   });
 
 }
-const getMealInfo = mealId =>{
+const getMealInfo = mealId => {
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
   fetch(url)
-  .then(res => res.json())
-  .then(data => details(data.meals))
- }
+    .then(res => res.json())
+    .then(data => details(data.meals))
+}
 
-function details(data){
-    const detailsDiv = document.getElementById('meal-Details');
+function details(data) {
+  const detailsDiv = document.getElementById('meal-Details');
   for (let i = 0; i < data.length; i++) {
     const element = data[i];
     detailsDiv.innerHTML = `
